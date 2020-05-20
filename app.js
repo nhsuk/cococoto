@@ -9,6 +9,8 @@ const express = require('express');
 const nunjucks = require('nunjucks');
 const sessionInCookie = require('client-sessions')
 const sessionInMemory = require('express-session')
+const markdown = require('nunjucks-markdown');
+const marked = require('marked');
 
 // Run before other code to make sure variables from .env are available
 dotenv.config()
@@ -62,6 +64,9 @@ nunjucksAppEnv.addGlobal('version', packageInfo.version);
 
 // Add Nunjucks filters
 utils.addNunjucksFilters(nunjucksAppEnv)
+
+// Register markdown processing
+markdown.register(nunjucksAppEnv, marked);
 
 
 // Session uses service name to avoid clashes with other prototypes
