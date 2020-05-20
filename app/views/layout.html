@@ -21,14 +21,35 @@
 <!-- More info and code for the header can be found at https://service-manual.nhs.uk/design-system/components/header -->
 {% block header %}
   {{ header({
-    "service": {
-        "name": "Prototype kit",
-        "href": "/"
-      },
-      "showNav": "false",
-      "showSearch": "false"
-    })
-  }}
+			"service": {
+				"name": "NHS.UK API Developer Portal",
+				"longName": "true"
+			},
+			"ariaLabel": "NHS.UK API Developer Portal",
+			"showNav": "true",
+			"primaryLinks": [
+				{
+					"url"  : "/about",
+					"label" : "About"
+				},
+				{
+					"url"  : "apis",
+					"label" : "APIs"
+				},
+				{
+					'url' :  "#",
+					'label' : 'Widgets'
+				},
+				{
+					'url'  : "#",
+					'label' : 'Documentation'
+				},
+				{
+					'url'  : "/support",
+					'label' : 'Support'
+				}
+			]
+		})}}
 {% endblock %}
 
 <!-- Footer goes inside the footer block -->
