@@ -57,27 +57,37 @@
 
         This can help you make sure your content is always up to date and aligned with the messaging on the NHS website.
         
-        [Sign up for alerts for our symptoms content](https://api-authentication-manager.service.nhs.uk/login)
-
-
+        {{ actionLink ({
+          "href": "https://api-authentication-manager.service.nhs.uk/login",
+          "text": "Sign up for alerts for our symptoms content"
+        })}}
+        
         ## Use our symptoms content in your product or service
         You can embed our symptoms content directly into your product or service. This content can be easily refreshed, so you always have the latest version.
 
         There are 2 ways to embed our content, depending on your level of technical expertise. 
 
-        ### Coronavirus symptoms widget
-        A content box using NHS website styles you can embed using a small piece of code.
-
-        ### Coronavirus symptoms API 
-        Content you can integrate into your service and add your own styles. Requires technical expertise.
-
+        <div class="nhsuk-grid-row nhsuk-promo-group">
+          <div class="nhsuk-grid-column-one-half nhsuk-promo-group__item">
+            {{ promo({
+              "href": "#",
+              "heading": "Coronavirus symptoms widget",
+              "description": "A content box using NHS website styles you can embed using a small piece of code.",
+              "class": "nhsuk-grid-column-one-half"
+            }) }}
+          </div>
+          <div class="nhsuk-grid-column-one-half nhsuk-promo-group__item">
+            {{ promo({
+              "href": "#",
+              "heading": "Coronavirus symptoms API",
+              "description": "Content you can integrate into your service and add your own styles. Requires technical expertise.",
+              "class": "nhsuk-grid-column-one-half"
+            }) }}
+          </div>
+        </div>
   
         You can also embed our full coronavirus content using a widget or API, if you want to use more than our symptoms content.
 
-
-
-
-  
       {% endmarkdown %}
     </div>
   </div>
