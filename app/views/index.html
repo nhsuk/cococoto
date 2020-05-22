@@ -25,68 +25,53 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
       {% markdown %}
-        # Coronavirus content for NHS services: Symptoms
+        <h1>
+          <span class="nhsuk-caption-l">Coronavirus content for NHS services</span>
+          Symptoms
+        </h1>
 
-        ## How we write about coronavirus symptoms
-        We have 4 types of content about the symptoms of coronavirus (COVID-19). These are designed to be used in different contexts and across a range of products and services.
+        ## Available content on coronavirus symptoms
+        We have 4 types of content about the symptoms of coronavirus (COVID-19).
+        These are designed to be used in different contexts and across a range of products and services.
 
         ### Short version:
-        The main symptoms of coronavirus (COVID-19) are a high temperature, a new, continuous cough and a loss or change to your sense of smell or taste.
-      
+        <div class="nhsuk-panel nhsuk-u-margin-top-0 nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-0 nhsuk-u-margin-bottom-4">
+          {% markdown %}
+            The main symptoms of coronavirus (COVID-19) are a high temperature, a new, continuous cough and a loss or change to your sense of smell or taste.
+          {% endmarkdown %}
+        </div>
+        {% include('./includes/how-to-use.html') %}
+
         ### Expanded version:
+        <div class="nhsuk-panel nhsuk-u-margin-top-0 nhsuk-u-margin-bottom-4">
+          {{ expanded | safe }}
+        </div>
+        {% include('./includes/how-to-use.html') %}
         
-        {{ expanded | safe }}
-
         ### Voice-friendly version:
-        **What are the symptoms of coronavirus?**
+        <div class="nhsuk-panel nhsuk-u-margin-top-0 nhsuk-u-margin-bottom-4">
+          {% markdown %}
+            **What are the symptoms of coronavirus?**
 
-        {{ voice | safe }}
-
+            {{ voice | safe }}
+          {% endmarkdown %}
+        </div>
+        {% include('./includes/how-to-use.html') %}
 
         ### Full version:
-        See our full page on the NHS website about [check if you have coronavirus symptoms](https://www.nhs.uk/conditions/coronavirus-covid-19/check-if-you-have-coronavirus-symptoms/#symptoms).
+        <div class="nhsuk-panel nhsuk-u-margin-top-0 nhsuk-u-margin-bottom-4">
+          {% markdown %}
+            See our full page on the NHS website about [check if you have coronavirus symptoms](https://www.nhs.uk/conditions/coronavirus-covid-19/check-if-you-have-coronavirus-symptoms/#symptoms).
+          {% endmarkdown %}
+        </div>
+        {% include('./includes/how-to-use.html') %}
 
-        ### Where our content comes from
-        Our symptoms content is based on official guidance published by Public Health England (PHE) and the office of the Chief Medical Officers (CMOs) of the UK. It is also aligned with content used by the NHS 111 service.
+        ## Where our content comes from
+        Our symptoms content is based on official guidance published by Public Health England (PHE) and the office of the Chief Medical Officers (CMOs) of the UK. 
+        
+        It is also aligned with content used by the NHS 111 service.
         
         The content has been adapted and simplified by our content team and checked by our internal clinical team at NHS Digital.
-        
-
-        ## Sign up for alerts when we change our symptoms content
-        If you want to adapt our symptoms content for your product or service, we an can alert you each time our content changes.
-
-        This can help you make sure your content is always up to date and aligned with the messaging on the NHS website.
-        
-        {{ actionLink ({
-          "href": "https://api-authentication-manager.service.nhs.uk/login",
-          "text": "Sign up for alerts for our symptoms content"
-        })}}
-        
-        ## Use our symptoms content in your product or service
-        You can embed our symptoms content directly into your product or service. This content can be easily refreshed, so you always have the latest version.
-
-        There are 2 ways to embed our content. 
-
-        <div class="nhsuk-grid-row nhsuk-promo-group">
-          <div class="nhsuk-grid-column-one-half nhsuk-promo-group__item">
-            {{ promo({
-              "href": "#",
-              "heading": "Coronavirus symptoms widget",
-              "description": "A content box using NHS website styles you can embed using a small piece of code.",
-              "class": "nhsuk-grid-column-one-half"
-            }) }}
-          </div>
-          <div class="nhsuk-grid-column-one-half nhsuk-promo-group__item">
-            {{ promo({
-              "href": "#",
-              "heading": "Coronavirus symptoms API",
-              "description": "Content you can integrate into your service and add your own styles. Requires technical expertise.",
-              "class": "nhsuk-grid-column-one-half"
-            }) }}
-          </div>
-        </div>
-  
-        You can also [embed our full coronavirus content](https://developer.api.nhs.uk/coronavirus) using a widget or API, if you want to use more than our symptoms content.
 
       {% endmarkdown %}
     </div>
