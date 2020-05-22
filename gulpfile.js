@@ -2,11 +2,11 @@
 const gulp = require('gulp');
 
 // External dependencies
-const babel = require('gulp-babel');
 const browserSync = require('browser-sync');
 const clean = require('gulp-clean');
 const sass = require('gulp-sass');
 const nodemon = require('gulp-nodemon');
+const webpack = require('webpack-stream');
 
 // Local dependencies
 const config = require('./app/config');
@@ -40,7 +40,25 @@ function compileScripts() {
     'app/assets/javascript/**/*.js',
     'docs/assets/javascript/**/*.js'
   ])
-  .pipe(babel())
+  .pipe(webpack({
+    mode: 'production',
+    module: {
+      rules: [
+        {
+          use: {
+            loader: 'babel-loader',
+            options: {
+              presets: ['@babel/preset-env'],
+            },
+          },
+        },
+      ],
+    },
+    output: {
+      filename: 'main.min.js',
+    },
+    target: 'web',
+  }))
   .pipe(gulp.dest('public/js'));
 }
 

@@ -1,1 +1,6 @@
-// ES6 or Vanilla JavaScript
+import DesignExample from './design-example';
+
+// Design examples
+document.querySelectorAll(DesignExample.selector()).forEach((el) => {
+  new DesignExample(el);
+});
