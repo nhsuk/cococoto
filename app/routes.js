@@ -1,5 +1,6 @@
 const express = require('express');
 const axios = require('axios');
+const highlightjs = require('highlight.js');
 
 const router = express.Router();
 
@@ -15,6 +16,14 @@ router.get('/', async (_, res) => {
     expanded,
     voice
   });
+});
+
+// Render standalone api examples
+router.get('/api-example/:condition', async (req, res) => {
+  const condition = req.params.condition;
+  const { data } = await axios(`https://api.nhs.uk/conditions/${condition}/?modules=true&url=www.nhs.uk`);
+  const highlightedData = highlightjs.highlightAuto(JSON.stringify(data, null, "  "), ['json']).value;
+  return res.render('api-example-wrapper.html', { highlightedData });
 });
 
 module.exports = router;

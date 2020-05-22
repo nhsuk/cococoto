@@ -1,0 +1,14 @@
+// Import NHS.UK frontend library
+@import 'node_modules/nhsuk-frontend/packages/nhsuk';
+
+// Design examples
+@import 'design-example/design-example';
+
+html, body {
+  background: #eee!important;
+}
+
+pre, code {
+  padding: 10px!important;
+  margin: 0!important;
+}

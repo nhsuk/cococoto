@@ -1,5 +1,3 @@
-import * as iframeResize from 'iframe-resizer/js/iframeResizer';
-
 class DesignExample {
 
     static selector() {
@@ -11,15 +9,12 @@ class DesignExample {
         this.tabClass = 'app-tabs__item';
         this.currentTabClass = this.tabClass + '--current';
         this.hiddenClass = 'js-hidden';
-        this.tabs = Array.prototype.slice.call(this.node.querySelectorAll(`.${this.tabClass}`));
-        this.examples = Array.prototype.slice.call(this.node.querySelectorAll('.code-snippet__preformatted'));
-        this.closeButtons = Array.prototype.slice.call(this.node.querySelectorAll('.app-link--close'));
-        this.copyButtons = Array.prototype.slice.call(this.node.querySelectorAll('.app-link--copy'));
-        this.iframe = this.node.querySelector('iframe');
-
+        this.tabs = this.node.querySelectorAll(`.${this.tabClass}`);
+        this.examples = this.node.querySelectorAll('.code-snippet__preformatted');
+        this.closeButtons = this.node.querySelectorAll('.app-link--close');
+        this.copyButtons = this.node.querySelectorAll('.app-link--copy');
+      
         this.bindEvents();
-
-        iFrameResize([{ heightCalculationMethod: 'max' }], this.iframe)
     }
 
     bindEvents() {
@@ -94,16 +89,6 @@ class DesignExample {
                 example.classList.remove(this.hiddenClass) :
                 example.classList.add(this.hiddenClass);
         });
-    }
-
-    // Yoink attr: https://www.456bereastreet.com/archive/201112/how_to_adjust_an_iframe_elements_height_to_fit_its_content/
-    setIframeHeight(iframe) {
-        if (iframe) {
-            const iframeWin = iframe.contentWindow || iframe.contentDocument.parentWindow;
-            if (iframeWin.document.body) {
-                iframe.height = iframeWin.document.documentElement.scrollHeight || iframeWin.document.body.scrollHeight;
-            }
-        }
     }
 }
 

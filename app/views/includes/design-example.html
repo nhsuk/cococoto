@@ -1,44 +1,37 @@
 {% macro designExample(params) %}
 
-{% set examplePath = "app/components/" + params.type + ".njk" %}
-{% set standaloneURL = "/design-example/" + params.type + "?fullpage=" + params.fullpage %}
+{% set standaloneURL = "/api-example/" + params.condition %}
 
-{# `showExample` is true, unless explicitly turned off with params #}
-{% set showExample = params.showExample !== false %}
+{% set endpoint = "https://api.nhs.uk/conditions/" + params.condition + "/" | safe %}
+{% set javascript = "fetch('" + endpoint + "');" | highlight('javascript') | safe %}
+{% set dotnet = "static readonly HttpClient client = new HttpClient();
 
-{% set html %}
-  {{- getHTMLCode(examplePath) | highlight('html') | safe -}}
-{% endset %}
+static async Task Main()
+{
+  try	
+  {
+     string responseBody = await client.GetStringAsync(" + endpoint + ");
+     Console.WriteLine(responseBody);
+  }
+  catch(HttpRequestException e)
+  {
+     Console.WriteLine(\"Exception Caught!\");	
+     Console.WriteLine(\"Message :{0} \",e.Message);
+  }
+}
+" | highlight('csharp') | safe %}
 
-{% set nunjucks %}
-  {{- getNunjucksCode(examplePath) | highlight('js') | safe -}}
-{% endset %}
-
-
-{#
-  Set up the `snippets` array to be a definition of the types of snippet to
-  display. If `params.htmlOnly` is true, the only snippet type to show is HTML.
-  Otherwise we show HTML and nunjucks.
-
-  Code definitions should be an object with a `name` and the raw `code` to
-  render onto the page with the `|safe` filter.
-#}
-{% set htmlDefinition = { name: 'HTML', code: html } %}
-{% set nunjucksDefinition = { name: 'Nunjucks', code: nunjucks } %}
-{% if params.htmlOnly %}
-  {% set snippets = [htmlDefinition] %}
-{% else %}
-  {% set snippets = [htmlDefinition, nunjucksDefinition] %}
-{% endif %}
+{% set snippets = [
+  { name: 'Endpoint', code: endpoint },
+  { name: 'JavaScript', code: javascript },
+  { name: 'C#', code: dotnet }
+] %}
 
 <div class="design-example">
 
-  {% if showExample %}
-    <a href="{{ standaloneURL }}" class="design-example__pop-out" target="_blank">Open this <span class="nhsuk-u-visually-hidden">{{ params.type|lower|replace("-", " ") }}</span> example in new window</a>
-    <div class="code-embed">
-        <iframe title="{{ params.type }}" src="{{ standaloneURL }}" frameborder="0" scrolling="yes"></iframe>
-    </div>
-  {% endif %}
+  <div class="code-embed">
+    <iframe title="{{ params.type }}" src="{{ standaloneURL }}" frameborder="0" scrolling="yes"></iframe>
+  </div>
 
   <div class="code-snippet">
       {% if snippets|length > 1 %}

@@ -25,12 +25,23 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
       {% markdown %}
-        # Using the API
-      {% endmarkdown %}
+        # Coronavirus API
+        Our coronavirus API allows you to integrate the coronavirus (COVID-19) information from the NHS website into your website, product or service. You can add your own styles to make the content fit with your other content.
 
+        Manually refresh the content regularly to make sure you always have the latest version.
+
+        Using the API requires some technical expertise. If you do not feel you have this, you could use our coronavirus widget instead.
+      {% endmarkdown %}
       {{ designExample({
-        type: "button"
+        condition: "coronavirus-covid-19"
       })}}
+      {% markdown %}
+        ## Request
+        | Query parameter                                    | Type    | Required     |
+        |----------------------------------------------------|---------|--------------|
+        | `modules`<br><p class="nhsuk-body-s">If true the content will be our modular content, if false be based on our full coronavirus page content. Please read [about our modular content](#) for more details</p> | Boolean | _optional_ |
+        | `url` <br><p class="nhsuk-body-s">So we can check how the API is being used, we need to know where you intend to use it.</p> | String  | **required** |
+      {% endmarkdown %}
     </div>
   </div>
 {% endblock %}

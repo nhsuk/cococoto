@@ -11,6 +11,8 @@ const sessionInCookie = require('client-sessions')
 const sessionInMemory = require('express-session')
 const markdown = require('nunjucks-markdown');
 const marked = require('marked');
+const highlightjs = require('highlight.js');
+const axios = require('axios');
 
 // Run before other code to make sure variables from .env are available
 dotenv.config()
@@ -68,6 +70,13 @@ utils.addNunjucksFilters(nunjucksAppEnv)
 // Register markdown processing
 markdown.register(nunjucksAppEnv, marked);
 
+// Add example helpers
+// env.addGlobal('getHTMLCode', fileHelper.getHTMLCode);
+// env.addGlobal('getNunjucksCode', fileHelper.getNunjucksCode);
+nunjucksAppEnv.addFilter('highlight', (code, language) => {
+  const languages = language ? [language] : false;
+  return highlightjs.highlightAuto(code.trim(), languages).value;
+});
 
 // Session uses service name to avoid clashes with other prototypes
 const sessionName = 'nhsuk-prototype-kit-' + (Buffer.from(config.serviceName, 'utf8')).toString('hex')
