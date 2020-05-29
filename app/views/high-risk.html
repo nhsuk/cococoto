@@ -1,0 +1,139 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!-- 
+  In /views/layout.html you can:
+    - change the header and footer 
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+  COVID content community toolkit
+{% endblock %}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+<!-- More info and code for the page layout can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      {% markdown %}
+        <h1>
+          <span class="nhsuk-caption-l">Coronavirus (COVID-19) content toolkit</span>
+          How to write about people at higher risk
+        </h1>
+        <div class="nhsuk-inset-text">
+          {% markdown %}
+            [NHS content on people at higher risk from coronavirus](https://www.nhs.uk/conditions/coronavirus-covid-19/people-at-higher-risk-from-coronavirus/whos-at-higher-risk-from-coronavirus/) last updated: **27 May 2020**.
+          {% endmarkdown %}
+        </div>
+
+        ## NHS content on people at higher risk from coronavirus
+
+        We have different types of content about people who are at a higher risk of getting seriously ill from coronavirus (COVID-19).
+
+
+        ### People at high risk (clinically extremely vulnerable):
+
+        <div class="nhsuk-panel nhsuk-u-margin-top-0 nhsuk-u-margin-bottom-4">
+          {% markdown %}
+          People at high risk from coronavirus include people who:
+
+          - have had an organ transplant
+          - are having chemotherapy or antibody treatment for cancer, including immunotherapy
+          - are having an intense course of radiotherapy (radical radiotherapy) for lung cancer
+          - are having targeted cancer treatments that can affect the immune system (such as protein kinase inhibitors or PARP inhibitors)
+          - have blood or bone marrow cancer (such as leukaemia, lymphoma or myeloma)
+          - have had a bone marrow or stem cell transplant in the past 6 months, or are still taking immunosuppressant medicine
+          - have been told by a doctor they you have a severe lung condition (such as cystic fibrosis, severe asthma or severe COPD)
+          - have a condition that means they have a very high risk of getting infections (such as SCID or sickle cell)
+          - are taking medicine that makes them much more likely to get infections (such as high doses of steroids or immunosuppressant medicine)
+          - have a serious heart condition and are pregnant
+          {% endmarkdown %}
+        </div>
+
+        This content is a summary of the main groups considered to be at high risk of becoming seriously ill from coronavirus – also known as clinically extremely vulnerable. 
+
+        People in this group are advised to stay at home at all times (called shielding).
+
+        {% include('./includes/how-to-use.html') %}
+
+
+        ### People at moderate risk (clinically vulnerable):
+
+        <div class="nhsuk-panel nhsuk-u-margin-top-0 nhsuk-u-margin-bottom-4">
+          {% markdown %}
+          People at moderate risk from coronavirus include people who:
+
+          - are 70 or older
+          - are pregnant
+          - have a lung condition that's not severe (such as asthma, COPD, emphysema or bronchitis)
+          - have heart disease (such as heart failure)
+          - have diabetes
+          - have chronic kidney disease
+          - have liver disease (such as hepatitis)
+          - have a condition affecting the brain or nerves (such as Parkinson's disease, motor neurone disease, multiple sclerosis or cerebral palsy)
+          - have a condition that means they have a high risk of getting infections
+          - are taking medicine that can affect the immune system (such as low doses of steroids)
+          - are very obese (a BMI of 40 or above)
+          {% endmarkdown %}
+        </div>
+
+        This content is a summary of the main groups considered to be at moderate risk of becoming seriously ill from coronavirus – also known as clinically vulnerable.
+
+        People in this group are advised to take extra care to follow the advice on social distancing.
+
+        {% include('./includes/how-to-use.html') %}
+
+        
+        ### Voice-friendly version:
+
+        <div class="nhsuk-panel nhsuk-u-margin-top-0 nhsuk-u-margin-bottom-4">
+          {% markdown %}
+          **Who is at higher risk from coronavirus?**
+
+          Coronavirus can make anyone seriously ill. But some people are at higher risk. There are two levels of higher risk: moderate risk and high risk. People at moderate risk – also called clinically vulnerable – include anyone who is over 70 or pregnant. People at high risk – also called clinically extremely vulnerable – include people who’ve had an organ transplant or are having some types of cancer treatment.
+          {% endmarkdown %}
+        </div>
+
+        This content is suited for voice assistants and chatbots. It provides a summary of the information in a voice-friendly structure – for example, by avoiding bullet points.
+
+        {% include('./includes/how-to-use.html') %}
+
+
+        ### Full version:
+
+        See our full page on the NHS website about [who’s at higher risk from coronavirus](https://www.nhs.uk/conditions/coronavirus-covid-19/people-at-higher-risk-from-coronavirus/whos-at-higher-risk-from-coronavirus/).
+
+        This content is best if you have space for a full web page of content and want your users to know all the information and advice on people at higher risk from coronavirus.
+
+        {% include('./includes/how-to-use.html') %}
+
+        
+        ## Where our content comes from
+
+        Our content on people at higher risk from coronavirus is based on official guidance from Public Health England (PHE), the office of the UK Chief Medical Officers (CMOs) and NHS Digital.
+
+        The content has been adapted and simplified by our content team and checked by the clinical team at NHS Digital.
+
+        Original guidance:
+
+        - [GOV.UK: Guidance on shielding and protecting people who are clinically extremely vulnerable from COVID-19](https://www.gov.uk/government/publications/guidance-on-shielding-and-protecting-extremely-vulnerable-persons-from-covid-19/guidance-on-shielding-and-protecting-extremely-vulnerable-persons-from-covid-19) (last updated 18 May 2020)
+        - [NHS Digital: Shielded patients list](https://digital.nhs.uk/coronavirus/shielded-patient-list) (last update 21 May 2020)
+
+        ## How to write for NHS services
+
+        For general information and advice about how to write content for digital NHS services, see the [NHS digital service manual content style guide](https://service-manual.nhs.uk/content).
+
+
+      {% endmarkdown %}
+    </div>
+  </div>
+{% endblock %}
