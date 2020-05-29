@@ -15,8 +15,11 @@
   COVID content community toolkit
 {% endblock %}
 
-<!-- Breadcrumb goes inside the beforeContent block -->
 {% block beforeContent %}
+  {{ hero({
+    "heading": "NHS coronavirus (COVID-19) content toolkit",
+    "text": "If you’re creating a digital service for coronavirus (COVID-19), you can use content from the NHS website to help you get started and stay up to date."
+  }) }}
 {% endblock %}
 
 <!-- Your page content goes inside the content block -->
@@ -25,77 +28,94 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
       {% markdown %}
-        <h1>
-          <span class="nhsuk-caption-l">Coronavirus (COVID-19) content toolkit</span>
-          How to write about coronavirus symptoms
-        </h1>
-        <div class="nhsuk-inset-text">
+        ## Coronavirus content you can use or adapt
+
+        All our coronavirus content is based on official published guidance. It has been adapted by our content team and approved by clinicians.
+        For each area below, there are examples of content we use for different platforms and information about how you can use or adapt our content for your needs.
+      {% endmarkdown %}
+      <div class="nhsuk-inset-text">
           {% markdown %}
-            [NHS coronavirus symptoms content](https://www.nhs.uk/conditions/coronavirus-covid-19/check-if-you-have-coronavirus-symptoms/) last updated: **18 May 2020**.
+            [NHS website coronavirus content](https://www.nhs.uk/conditions/coronavirus-covid-19/) last updated: **28 May 2020**.
           {% endmarkdown %}
         </div>
-      
-        ## NHS content on coronavirus symptoms
-        We have 4 types of content about the symptoms of coronavirus (COVID-19).
-        These are designed to be used in different contexts and across a range of products and services.
-
-        ### Short version:
-        <div class="nhsuk-panel nhsuk-u-margin-top-0 nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-0 nhsuk-u-margin-bottom-4">
+    </div>
+  </div>
+  <div class="nhsuk-grid-row nhsuk-promo-group">
+    <div class="nhsuk-grid-column-one-third nhsuk-promo-group__item">
+      {{ promo({
+        "href": "/symptoms",
+        "heading": "Symptoms",
+        "headingLevel": 2,
+        "description": "How we write about symptoms."
+      }) }}
+    </div>
+    <div class="nhsuk-grid-column-one-third nhsuk-promo-group__item">
+      {{ promo({
+        "href": "/social-distancing",
+        "heading": "Social distancing",
+        "headingLevel": 2,
+        "description": "How we write about social distancing."
+      }) }}
+    </div>
+    <div class="nhsuk-grid-column-one-third nhsuk-promo-group__item">
+      {{ promo({
+        "href": "self-care",
+        "heading": "Self-care",
+        "headingLevel": 2,
+        "description": "How we write about self-care."
+      }) }}
+    </div>
+  </div>
+  <div class="nhsuk-grid-row nhsuk-promo-group">
+    <div class="nhsuk-grid-column-one-third nhsuk-promo-group__item">
+      {{ promo({
+        "href": "/high-risk",
+        "heading": "Higher risk",
+        "headingLevel": 2,
+        "description": "How we write about people are higher risk."
+      }) }}
+    </div>
+    <div class="nhsuk-grid-column-one-third nhsuk-promo-group__item">
+      {{ promo({
+        "href": "#",
+        "heading": "Self isolation",
+        "headingLevel": 2,
+        "description": "How we write about self isolation."
+      }) }}
+    </div>
+    <div class="nhsuk-grid-column-one-third nhsuk-promo-group__item">
+      {{ promo({
+        "href": "#",
+        "heading": "Isolation note",
+        "headingLevel": 2,
+        "description": "How to get an isolation note."
+      }) }}
+    </div>
+  </div>
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <div class="nhsuk-inset-text">
           {% markdown %}
-            The main symptoms of coronavirus (COVID-19) are a high temperature, a new, continuous cough and a loss or change to your sense of smell or taste.
+            If you want to use all the coronavirus content from the NHS website in your service, see [how to get the latest information on coronavirus](https://developer.api.nhs.uk/coronavirus).
           {% endmarkdown %}
         </div>
-      
-        This content is best when space is limited – for example, a tweet or text message. It contains all the key information in fewer than 150 characters.
-         
-        {% include('./includes/how-to-use.html') %}
+    </div>
+  </div>
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      {% markdown %}
+        ## Words to use and avoid
 
-        ### Expanded version:
-        <div class="nhsuk-panel nhsuk-u-margin-top-0 nhsuk-u-margin-bottom-4">
-          {{ expanded | safe }}
-        </div>
-        
-        This content may be better if you have more space – for example, in an app or embedded within a web page. It provides more detail to help users understand if they have coronavirus symptoms.
-        
-        {% include('./includes/how-to-use.html') %}
-        
-        ### Voice-friendly version:
-        <div class="nhsuk-panel nhsuk-u-margin-top-0 nhsuk-u-margin-bottom-4">
-          {% markdown %}
-            **What are the symptoms of coronavirus?**
+        The NHS website content team has worked with content teams from Government Digital Service (GDS) and other organisations to produce guidance on some of the key terms related to coronavirus.
 
-            {{ voice | safe }}
-          {% endmarkdown %}
-        </div>
-        
-        This content is suited for voice assistants and chatbots. It provides the same detail as the expanded version, but with a voice-friendly structure – for example, by avoiding bullet points.
-        
-        {% include('./includes/how-to-use.html') %}
+        [GOV.UK: coronavirus words to use and avoid](https://www.gov.uk/guidance/style-guide)
 
-        ### Full version:
-        <div class="nhsuk-panel nhsuk-u-margin-top-0 nhsuk-u-margin-bottom-4">
-          {% markdown %}
-            See our full page on the NHS website about [check if you have coronavirus symptoms](https://www.nhs.uk/conditions/coronavirus-covid-19/check-if-you-have-coronavirus-symptoms/#symptoms).
-          {% endmarkdown %}
-        </div>
-        
-        This content is best if you have space for a full web page of content and want your users to know all the information and advice on coronavirus symptoms. 
-       
-        {% include('./includes/how-to-use.html') %}
 
-        ## Where our content comes from
-        Our symptoms content is based on official guidance published by Public Health England (PHE) and the office of the UK Chief Medical Officers (CMOs). 
-        
-        It is also aligned with content used by the NHS 111 service.
-        
-        The content has been adapted and simplified by our content team and checked by the clinical team at NHS Digital.
-      
-        **Original guidance:**
-        - [GOV.UK: Stay at home guidance for households with possible coronavirus (COVID-19) infection](https://www.gov.uk/government/publications/covid-19-stay-at-home-guidance) (last updated 18 May 2020)
-       
-        ## How to write for NHS services
-        For general information and advice about how to write content for digital NHS services, see the [NHS digital service manual content style guide](https://service-manual.nhs.uk/content).
+        ## General advice about writing for digital services
 
+        The NHS digital service manual has general tips about writing content for digital services and a content style guide for health-related content.
+
+        [NHS digital service manual](https://service-manual.nhs.uk/)
       {% endmarkdown %}
     </div>
   </div>
