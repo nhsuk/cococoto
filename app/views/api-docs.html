@@ -1,0 +1,99 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!-- 
+  In /views/layout.html you can:
+    - change the header and footer 
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+  COVID content community toolkit
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+<!-- More info and code for the page layout can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      {% markdown %}
+        <h1>
+          <span class="nhsuk-caption-l">Coronavirus (COVID-19) content toolkit</span>
+          {{ info.title }} documentation
+        </h1>
+
+        {{ info.description }}
+
+        ## Host
+        <div class="nhsuk-panel nhsuk-u-margin-top-0">
+          <code>{{ host }}</code>
+        </div>
+
+        ## Basepath
+        <div class="nhsuk-panel nhsuk-u-margin-top-0">
+          <code>{{ basePath }}</code>
+        </div>
+
+        ## Endpoints      
+      {% endmarkdown %}
+    </div>
+  </div>
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+      {% for path, object in paths %}
+        <div class="nhsuk-panel nhsuk-u-margin-top-0">
+          {% for method, options in object %}
+            {% markdown %}
+              ### Endpoint
+              <strong class="nhsuk-tag nhsuk-tag--green">{{ method | upper }}</strong> `{{ path }}`
+              ### Description
+              {{ options.summary }}
+              ### Parameters
+            {% endmarkdown %}
+            <table>
+            <tr>
+              <th>Name</th>
+              <th>Type</th>
+              <th>Required</th>
+              <th>Allowed</th>
+              <th>Default</th>
+              <th>Description</th>
+            </tr>
+            {% for parameter in options.parameters %}
+            <tr>
+              <td>
+                <strong>{{ parameter.name }}</strong><br>
+                <small>{{ parameter.in }}</small>
+              </td>
+              <td>
+                <small><code>{{ parameter.type }}</code></small>
+              </td>
+              <td>
+                <small><i>{{ parameter.required }}</i></small>
+              </td>
+              <td>
+                <small><i>
+                  {% set comma = joiner() %}
+                  {% for val in parameter.enum -%}
+                    {{ comma() }} {{ val }}
+                  {%- endfor %}
+                </i></small>
+              </td>
+              <td>
+                <small><i>{{ parameter.default }}</i></small>
+              </td>
+              <td>
+                <small>{{ parameter.description }}</small>
+              </td>
+            </tr>
+            {% endfor %}
+            </table>
+        {% endfor %}
+      </div>
+    {% endfor %}
+  </div>
+{% endblock %}

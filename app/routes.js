@@ -4,7 +4,7 @@ const highlightjs = require('highlight.js');
 
 const router = express.Router();
 
-router.get('/', async (_, res) => {
+router.get('/symptoms', async (_, res) => {
   // Request for coronavirus content page for expanded content
   const { data: { modules } } = await axios('https://api.nhs.uk/conditions/coronavirus-covid-19/?modules=true&url=www.nhs.uk');
   const { text: expanded } = modules.find(({ name }) => name === 'symptoms');
@@ -12,18 +12,18 @@ router.get('/', async (_, res) => {
   const { data: { mainEntity } } = await axios('https://api.nhs.uk/conditions/coronavirus-covid-19/faqs');
   const { acceptedAnswer: { text: voice } } = mainEntity.find(({ name }) => name === 'What are the symptoms of coronavirus?');
 
-  return res.render('index.html', {
+  return res.render('symptoms.html', {
     expanded,
     voice
   });
 });
 
 // Render standalone api examples
-router.get('/api-example/:condition', async (req, res) => {
-  const condition = req.params.condition;
-  const { data } = await axios(`https://api.nhs.uk/conditions/${condition}/?modules=true&url=www.nhs.uk`);
-  const highlightedData = highlightjs.highlightAuto(JSON.stringify(data, null, "  "), ['json']).value;
-  return res.render('api-example-wrapper.html', { highlightedData });
+router.get('/api-docs', async (req, res) => {
+  const endpoint = req.query.swaggerEndpoint;
+  const { data: swagger } = await axios(endpoint);
+  console.log(swagger);
+  return res.render('api-docs.html', { endpoint, ...swagger });
 });
 
 module.exports = router;
