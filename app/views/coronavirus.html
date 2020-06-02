@@ -1,0 +1,91 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!-- 
+  In /views/layout.html you can:
+    - change the header and footer 
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+  COVID content community toolkit
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+<!-- More info and code for the page layout can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      {% markdown %}
+        # Get the latest information on coronavirus
+        Information about coronavirus (COVID-19) is constantly evolving. You can make sure your users get the latest advice by using the content from the NHS website.
+      {% endmarkdown %}
+        <div class="nhsuk-inset-text">
+          <span class="nhsuk-u-visually-hidden">Information: </span>
+          <p><a href="https://www.nhs.uk/coronavirus" target="_blank">NHS website coronavirus content</a> last updated: <b>28 May 2020</b>.</p>
+        </div>
+      {% markdown %}
+        There are several ways you can use the coronavirus content from the NHS website in your website, product or service.
+
+        ## Embed NHS information in your service
+        You can directly embed the latest coronavirus content from the NHS website in your website, product or service. The content can be automatically or manually refreshed so you always have the latest version.
+      {% endmarkdown %}
+
+      <div class="nhsuk-grid-row nhsuk-promo-group nhsuk-u-margin-bottom-8">
+        <div class="nhsuk-grid-column-one-half nhsuk-promo-group__item">
+          {{ promo({
+            "href": "/coronavirus/widget",
+            "heading": "Widget",
+            "headingLevel": 2,
+            "description": "A content box using NHS website styles you can embed using a small piece of code.",
+            "imgURL": "https://apimgmtstr2trrqmpcio8bj1.blob.core.windows.net/content/MediaLibrary/coronazone/widget.jpg"
+          }) }}
+        </div>
+        <div class="nhsuk-grid-column-one-half nhsuk-promo-group__item">
+          {{ promo({
+            "href": "/coronavirus/api",
+            "heading": "API",
+            "headingLevel": 2,
+            "description": "Content you can integrate into your service and add your own styles. Requires technical expertise.",
+            "imgURL": "https://apimgmtstr2trrqmpcio8bj1.blob.core.windows.net/content/MediaLibrary/coronazone/api.jpg"
+          }) }}
+        </div>
+      </div>
+
+      {% markdown %}
+        ## Direct your users to NHS information
+        To help your users find the latest coronavirus information on the NHS website, you can add a prominent link to the coronavirus content. </p>
+      {% endmarkdown %}
+      
+      <div class="nhsuk-grid-row nhsuk-promo-group nhsuk-u-margin-bottom-8">
+        <div class="nhsuk-grid-column-one-half nhsuk-promo-group__item">
+          {{ promo({
+            "href": "/coronavirus/button",
+            "heading": "Button",
+            "headingLevel": 3,
+            "description": "A small button with a link to the NHS coronavirus content you can embed using a small piece of code.",
+            "imgURL": "https://apimgmtstr2trrqmpcio8bj1.blob.core.windows.net/content/MediaLibrary/coronazone/button.jpg"
+          }) }}
+        </div>
+        <div class="nhsuk-grid-column-one-half nhsuk-promo-group__item">
+          {{ promo({
+            "href": "/coronavirus/banner",
+            "heading": "Banner",
+            "headingLevel": 3,
+            "description": "A prominent banner you can put on one or multiple pages with a link to the NHS coronavirus content.",
+            "imgURL": "https://apimgmtstr2trrqmpcio8bj1.blob.core.windows.net/content/MediaLibrary/coronazone/banner.jpg"
+          }) }}
+        </div>
+      </div>
+      
+      {% markdown %}
+        ## Get in touch with suggestions
+        If you have any suggestions for how we can improve our coronavirus content service, please get in touch at [syndication.service@nhs.net](mailto:syndication.service@nhs.net)
+      {% endmarkdown %}
+    </div>
+  </div>
+{% endblock %}
