@@ -1,0 +1,130 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!-- 
+  In /views/layout.html you can:
+    - change the header and footer 
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+  NHS coronavirus (COVID-19) content toolkit
+{% endblock %}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+<!-- More info and code for the page layout can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      {% markdown %}
+        <h1>
+          <span class="nhsuk-caption-l">Coronavirus (COVID-19) content toolkit</span>
+          How to write about testing
+        </h1>
+        <div class="nhsuk-inset-text">
+          {% markdown %}
+            [NHS testing content](https://www.nhs.uk/conditions/coronavirus-covid-19/testing-and-tracing/ask-for-a-test-to-check-if-you-have-coronavirus/) last updated: **1 June 2020**.
+          {% endmarkdown %}
+        </div>
+
+        ## NHS content on testing for coronavirus
+
+        We have 4 types of content about testing for coronavirus (COVID-19). These are designed to be used in different contexts and across a range of products and services.
+
+
+        ### Short version:
+
+        <div class="nhsuk-panel nhsuk-u-margin-top-0 nhsuk-u-margin-bottom-4">
+          {% markdown %}
+            If you have symptoms of coronavirus (COVID-19), go to the NHS website (www.nhs.uk) to ask for a test. Call 119 if you do not have internet access.
+          {% endmarkdown %}
+        </div>
+
+        This content is best when space is limited – for example, a tweet or text message. It contains all the key information in fewer than 150 characters.
+
+        {% include('./includes/how-to-use.html') %}
+
+
+        ### Expanded version:
+
+        <div class="nhsuk-panel nhsuk-u-margin-top-0 nhsuk-u-margin-bottom-4">
+          {% markdown %}
+            You should get a test to check for coronavirus if you have any symptoms of the virus (a high temperature, a new, continuous cough, or a loss or change to your sense of smell or taste).
+
+            You can ask for a test:
+
+            -	for yourself, if you have symptoms
+            -	for someone you live with, if they have symptoms
+
+            Ask for a test as soon as you get symptoms. It needs to be done in the first 5 days of having symptoms.
+
+            The test usually involves taking a swab of the inside of your nose and the back of your throat, using a long cotton bud.
+
+            You can choose between driving to a regional testing site or getting a home test kit.
+
+            Ask for a test on the NHS website (www.nhs.uk). Call 119 if you do not have internet access.
+          {% endmarkdown %}
+        </div>
+
+        This content may be better if you have more space – for example, in an app or embedded within a web page. It provides more detail to help users understand about coronavirus testing.
+
+        {% include('./includes/how-to-use.html') %}
+        
+        ### Voice-friendly version:
+      
+        <div class="nhsuk-panel nhsuk-u-margin-top-0 nhsuk-u-margin-bottom-4">
+          
+          {% markdown %}
+            **Who can get tested for coronavirus?**
+          
+            You can ask for a test to check for coronavirus for yourself – if you have any coronavirus symptoms – or for someone you live with – if they have any symptoms. In England and Wales, you can ask for a test for a child who lives with you, whatever their age. In Scotland and Northern Ireland, you can only get a test for your child if they are aged 5 or over.
+          {% endmarkdown %}
+        
+        </div>
+        
+        This content is suited for voice assistants and chatbots. It's written in a voice-friendly structure – for example, by avoiding bullet points.
+        
+        {% include('./includes/how-to-use.html') %}
+
+
+      
+        ### Full version:
+        
+        <div class="nhsuk-panel nhsuk-u-margin-top-0 nhsuk-u-margin-bottom-4">
+          {% markdown %}
+            See our full page on the NHS website about [asking for a test to check if you have coronavirus](https://www.nhs.uk/conditions/coronavirus-covid-19/testing-and-tracing/ask-for-a-test-to-check-if-you-have-coronavirus/). 
+          {% endmarkdown %}
+        </div>
+      
+        This content is best if you have space for a full web page of content and want your users to know all the information and advice on testing.
+
+
+        {% include('./includes/how-to-use.html') %}
+
+        
+        ## Where our content comes from
+
+        Our testting content is based on official guidance published by Public Health England (PHE) and the coronavirus testing programme.
+
+        The content has been adapted and simplified by our content team and checked by the clinical team at NHS Digital.
+      
+        Original guidance:
+      
+        - [GOV.UK: Coronavirus - Getting tested](https://www.gov.uk/guidance/coronavirus-covid-19-getting-tested) (last updated 1 June 2020)
+        
+        ## How to write for NHS services
+
+        For general information and advice about how to write content for digital NHS services, see the [NHS digital service manual content style guide](https://service-manual.nhs.uk/content).
+
+      {% endmarkdown %}
+    </div>
+  </div>
+{% endblock %}
