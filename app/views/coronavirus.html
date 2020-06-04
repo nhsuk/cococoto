@@ -15,6 +15,18 @@
   COVID content community toolkit
 {% endblock %}
 
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+  <nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+    <div class="nhsuk-width-container">
+      <ol class="nhsuk-breadcrumb__list">
+        <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="https://developer.api.nhs.uk/">Home</a></li>
+      </ol>
+      <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="https://developer.api.nhs.uk/">Back to Home</a></p>
+    </div>
+  </nav>
+{% endblock %}
+
 <!-- Your page content goes inside the content block -->
 <!-- More info and code for the page layout can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
 {% block content %}
