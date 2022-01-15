@@ -35,7 +35,7 @@
     "highlight.js": "^10.0.3",
     "iframe-resizer": "^4.2.10",
     "keypather": "^3.0.0",
-    "marked": "^1.1.0",
+    "marked": "^4.0.10",
     "nhsuk-frontend": "^3.1.0",
     "node-sass": "^4.14.0",
     "nunjucks": "^3.2.1",
